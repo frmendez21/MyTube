@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# MyTube
+>>>>>>> 06fd016ae2dfc84a4d0e1aa1581c4d1f4f55d566
