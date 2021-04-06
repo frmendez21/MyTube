@@ -17,7 +17,6 @@ class SessionForm extends React.Component{
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
-            .then(this.props.closeModal);
     };
 
     update(key) {
@@ -31,7 +30,6 @@ class SessionForm extends React.Component{
             password: 'demo123'
         }
         this.props.processForm(user)
-            .then(this.props.closeModal);
     }
     
     render() {
@@ -42,7 +40,6 @@ class SessionForm extends React.Component{
             <div>
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <h3>{formHeader}</h3>
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
                     <input type="text" value={email} onChange={this.update('email')} placeholder='Email'/>
                     <input type="text" value={username} onChange={this.update('username')} placeholder='Username'/>
                     <input type="password" value={password} onChange={this.update('password')} placeholder="Password"/>
