@@ -1,7 +1,7 @@
 import React from 'react';
-import {withRouter, Link} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
-class SessionForm extends React.Component{
+class SignupForm extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -10,7 +10,6 @@ class SessionForm extends React.Component{
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.demoLogin = this.demoLogin.bind(this);
     };
 
     handleSubmit(e){
@@ -24,20 +23,10 @@ class SessionForm extends React.Component{
         return e => this.setState({[key]: e.currentTarget.value});
     };
 
-    demoLogin() {
-        const user = { 
-            username: 'demo-user', 
-            email: 'demo@myTube.com',
-            password: 'demo123'
-        }
-        this.props.processForm(user)
-            .then(this.props.closeModal)
-    }
-    
     render() {
         const {username, email, password} = this.state;
-        const {formHeader, formType, signup, login} = this.props;
-        const link = formType === 'login' ? <Link to="/signup" onClick={signup}>Create account</Link> : <Link to="/login" onClick={login}>Sign in</Link>
+        const {formHeader, login} = this.props;
+        const link = <Link to="/login" onClick={login}>Sign in</Link>
 
         return (
             <div>
@@ -48,14 +37,10 @@ class SessionForm extends React.Component{
                     <input type="password" value={password} onChange={this.update('password')} placeholder="Password"/>
                     <button type="submit">Next</button>
                 </form>
-                <br/>
-                <p>Or</p>
-                <br/>
-                <button onClick={this.demoLogin}>Demo Login</button>
                 {link}
             </div>
         )
     };
 };
 
-export default withRouter(SessionForm);
+export default SignupForm;
