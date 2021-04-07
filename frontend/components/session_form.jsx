@@ -1,5 +1,5 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 
 class SessionForm extends React.Component{
     constructor(props){
@@ -17,6 +17,7 @@ class SessionForm extends React.Component{
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
+            .then(this.props.closeModal)
     };
 
     update(key) {
@@ -30,12 +31,14 @@ class SessionForm extends React.Component{
             password: 'demo123'
         }
         this.props.processForm(user)
+            .then(this.props.closeModal)
     }
     
     render() {
         const {username, email, password} = this.state;
-        const {formHeader, formType} = this.props;
-        
+        const {formHeader, formType, signup, login} = this.props;
+        const link = formType === 'login' ? <Link to="/signup" onClick={signup}>Create account</Link> : <Link to="/login" onClick={login}>Sign in</Link>
+
         return (
             <div>
                 <form className="session-form" onSubmit={this.handleSubmit}>
@@ -49,6 +52,7 @@ class SessionForm extends React.Component{
                 <p>Or</p>
                 <br/>
                 <button onClick={this.demoLogin}>Demo Login</button>
+                {link}
             </div>
         )
     };
