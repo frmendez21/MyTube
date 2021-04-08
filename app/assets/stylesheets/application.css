@@ -156,14 +156,16 @@
 }
 
 .switch-form-btn, .signup-switch-form-btn{
+  cursor: pointer;
   color: rgb(93, 93, 251);
   text-decoration: none;
-  margin-right: 20px;
+
 }
 .signup-switch-form-btn{
   padding-left: 14px;
 }
 .switch-form-btn {
+  display: inline;
   margin-right: 90px;
 }
 .next-btn {

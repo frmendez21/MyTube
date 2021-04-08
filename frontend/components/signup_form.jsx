@@ -11,6 +11,7 @@ class SignupForm extends React.Component{
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFail = this.handleFail.bind(this);
+        this.switchForms = this.switchForms.bind(this);
     };
 
     handleSubmit(e){
@@ -34,10 +35,15 @@ class SignupForm extends React.Component{
         return e => this.setState({[key]: e.currentTarget.value});
     };
 
+    switchForms() {
+        this.props.clearErrors()
+        this.props.login();
+    }
+
     render() {
         const {username, email, password} = this.state;
         const {formHeader, formType, login} = this.props;
-        const link = <Link className="signup-switch-form-btn" to="/login" onClick={login}>Sign in</Link>
+        const link = <div className="signup-switch-form-btn" onClick={this.switchForms}>Sign in</div>
         const errors = this.props.errors.length > 0 ? this.props.errors[0] : "";
         return (
             <div>

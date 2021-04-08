@@ -14,6 +14,7 @@ class LoginForm extends React.Component{
         this.showUserNameInput = this.showUserNameInput.bind(this);
         this.showPasswordInput = this.showPasswordInput.bind(this);
         this.handleFail = this.handleFail.bind(this);
+        this.switchForms = this.switchForms.bind(this);
     };
 
     handleSubmit(e){
@@ -63,7 +64,6 @@ class LoginForm extends React.Component{
         $password.show();
     }
     showEmailInput() {
-
         let $email = $(".email-input");
         let $input = $email.find("input")
         let $password = $(".password-input");
@@ -71,11 +71,15 @@ class LoginForm extends React.Component{
         $input.css("border-color", "red")
         $email.show();
     }
-    
+
+    switchForms() {
+        this.props.clearErrors()
+        this.props.signup();
+    }
     render() {
         const {username, email, password} = this.state;
         const {formHeader, formType, signup, login} = this.props;
-        const link = <Link to="/signup" className="switch-form-btn" onClick={signup}>Create account</Link>;
+        const link = <div className="switch-form-btn" onClick={this.switchForms}>Create account</div>;
         const errors = this.props.errors.length > 0 ? this.props.errors[0] : "";
         return (
             <div>

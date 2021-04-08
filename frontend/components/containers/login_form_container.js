@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import LoginForm from '../login_form';
-import {login} from '../../actions/session_actions';
+import {login, clearErrors} from '../../actions/session_actions';
 import {closeModal, openModal} from '../../actions/modal_actions';
 
 const MSTP = state => ({
@@ -12,7 +12,8 @@ const MSTP = state => ({
 const MDTP = dispatch => ({
     processForm: user => dispatch(login(user)), 
     closeModal: () => dispatch(closeModal()), 
-    signup: () => dispatch(openModal('signup'))
+    signup: () => dispatch(openModal('signup')),
+    clearErrors: () => dispatch(clearErrors())
 });
 
 export default connect(MSTP, MDTP)(LoginForm);
