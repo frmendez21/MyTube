@@ -23,11 +23,11 @@ export default class AvatarWrapper extends React.Component {
         const {currentUser, login} = this.props;
         const {isDropdownOpen} = this.state;
 
-        let button = currentUser ? <button onClick={() => this.toggleDropdown()}>{currentUser.username[0]}</button> : <button onClick={login}>SIGN IN</button>;
+        let button = currentUser ? <button className="avatar-btn" onClick={() => this.toggleDropdown()}><strong id="avatar-btn-text">{currentUser.username[0]}</strong></button> : <button className="loggedout-avatar-btn"onClick={login}>SIGN IN</button>;
 
         let dropdown = isDropdownOpen && currentUser ? <AvatarDropdown logout={this.props.logout}/> : null;
         return(
-            <div>
+            <div className="avatar-wrapper">
                 {button}
                 {dropdown}
             </div>

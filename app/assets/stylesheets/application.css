@@ -19,7 +19,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background: rgba(0, 0, 0, .95);
+  background: rgba(255, 255, 255, 0.95);
   z-index: 10;
 }
 
@@ -30,6 +30,9 @@
   transform: translate(-50%, -50%);
   background-color: white;
   height: 500px;
+  width: 500px;
+  border: 1px solid lightgray;
+  border-radius: 2%;
 }
 
  .close-x {
@@ -42,3 +45,124 @@
  .hidden {
    display: none;
  }
+
+ .app-head{
+   padding: 15px;
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .logo {
+   width: 80px;
+   height: 30px;
+   cursor: pointer;
+ }
+
+ .avatar-btn{
+  border-radius: 50%;
+  background-color: rgb(238, 116, 136);
+  outline: none;
+  border-style: none;
+  position: absolute;
+  right: 5px;
+  padding: 5px 3px;
+}
+
+.loggedout-avatar-btn{
+  outline: none;
+  position: absolute;
+  color: blue;
+  background-color: white;
+  border: 1px solid blue;
+  font-weight: bold;
+  right: 5px;
+  padding: 5px 3px;
+}
+
+#avatar-btn-text{
+  padding: 6px;
+  color: white;
+}
+
+.avatar-dropdown{
+  border: 1px solid rgb(231, 231, 231);
+  position: relative;
+  display: block;
+  top: 25px;
+  right: 5px;
+  box-shadow: 1px 1px 1px rgb(231, 231, 231);
+}
+.avatar-list-item{
+  display: block;
+  padding: 3px;
+}
+ .avatar-list-item:hover{
+   cursor: pointer;
+   background-color: rgb(243, 243, 243);
+ }
+
+.form-header {
+  top: 20px;
+  padding: 35px 10px;
+  text-align: center;
+}
+
+#form-type{
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.login-form{
+  padding:10px;
+}
+
+.form-logo{
+  width: 80px;
+  height: 30px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-input, .username-input, .password-input {
+  margin-left: 140px;
+}
+input[type="text"], input[type="password"] {
+  width: 200px;
+  height: 20px;
+}
+
+
+#login-errors {
+  color: red;
+}
+
+.demo-login-btn {
+  width: 90px;
+  color: rgb(93, 93, 251);
+  cursor: pointer;
+}
+
+.switch-form-btn, .signup-switch-form-btn{
+  color: rgb(93, 93, 251);
+  text-decoration: none;
+  margin-right: 20px;
+}
+.signup-switch-form-btn{
+  padding-left: 14px;
+}
+
+.next-btn {
+  background-color: rgb(93, 93, 251);
+  color: white;
+  border-style: none;
+  padding: 7px 22px;
+  border-radius: 5%;
+  margin-left: 20px;
+}
+
+.signup-email-input, .signup-username-input, .signup-password-input{
+  display: inline-block;
+  padding: 8px 15px;
+}

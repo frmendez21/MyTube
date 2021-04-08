@@ -4,9 +4,9 @@ export default class AvatarDropdown extends React.Component {
     render (){
         return (
             <ul className='avatar-dropdown'>
-                <button>Your channel</button>
-                <button onClick={this.props.logout}>Sign Out</button>
-                <button>Setings</button>
+                <li className="avatar-list-item" key={'1'}>Your channel</li>
+                <li className="avatar-list-item" key={'2'} onClick={this.props.logout}>Sign Out</li>
+                <li className="avatar-list-item" key={'3'}>Setings</li>
             </ul>
         );
     };

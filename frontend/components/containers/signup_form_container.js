@@ -5,8 +5,8 @@ import {closeModal, openModal} from '../../actions/modal_actions';
 
 const MSTP = state => ({
     errors: state.errors.session, 
-    formHeader: 'Create account to continue to MyTube',
-    formType: 'signup'
+    formHeader: 'to continue to MyTube',
+    formType: 'Create your Account'
 });
 
 const MDTP = dispatch => ({

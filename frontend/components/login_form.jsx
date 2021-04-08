@@ -13,6 +13,7 @@ class LoginForm extends React.Component{
         this.demoLogin = this.demoLogin.bind(this);
         this.showUserNameInput = this.showUserNameInput.bind(this);
         this.showPasswordInput = this.showPasswordInput.bind(this);
+        this.handleFail = this.handleFail.bind(this);
     };
 
     handleSubmit(e){
@@ -20,6 +21,16 @@ class LoginForm extends React.Component{
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
             .then(this.props.closeModal)
+            .fail(() => this.handleFail())
+    };
+
+    handleFail() {
+        this.setState({
+            username: "",
+            email: "",
+            password: ""
+        });
+        this.showEmailInput();
     };
 
     update(key) {
@@ -51,34 +62,57 @@ class LoginForm extends React.Component{
         $username.hide();
         $password.show();
     }
+    showEmailInput() {
+
+        let $email = $(".email-input");
+        let $input = $email.find("input")
+        let $password = $(".password-input");
+        $password.hide();
+        $input.css("border-color", "red")
+        $email.show();
+    }
     
     render() {
         const {username, email, password} = this.state;
         const {formHeader, formType, signup, login} = this.props;
-        const link = <Link to="/signup" onClick={signup}>Create account</Link>;
-
+        const link = <Link to="/signup" className="switch-form-btn" onClick={signup}>Create account</Link>;
+        const errors = this.props.errors.length > 0 ? this.props.errors[0] : "";
         return (
             <div>
                 <form className="login-form" onSubmit={this.handleSubmit}>
-                    <h3>{formHeader}</h3>
+                    <h3 className={'form-header'}>
+                        <img className="form-logo" src={window.logo} onClick={() => this.props.closeModal()}/>
+                        <strong id="form-type">{formType}</strong>
+                        <br/>
+                        <p>{formHeader}</p>
+                    </h3>
                     <div className="email-input">
                         <input type="text" value={email} onChange={this.update('email')} placeholder='Email'/>
-                        <button onClick={this.showUserNameInput}>Next</button>
+                        <p id="login-errors">{errors}</p>
+                        <br/>
+                        <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
+                        <br/>
+                        {link}
+                        <button className="next-btn"onClick={this.showUserNameInput}>Next</button>
                     </div>
                     <div className="username-input hidden">
                         <input type="text" value={username} onChange={this.update('username')} placeholder='Username'/>
-                        <button onClick={this.showPasswordInput}>Next</button>
+                        <br/>
+                        <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
+                        <br/>
+                        {link}
+                        <button className="next-btn" onClick={this.showPasswordInput}>Next</button>
                     </div>
                     <div className="password-input hidden" >
                         <input type="password" value={password} onChange={this.update('password')} placeholder="Enter your password"/>
-                        <button type="submit">Next</button>
+                        <br/>
+                        <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
+                        <br/>
+                        {link}
+                        <button  className="next-btn" type="submit">Next</button>
                     </div>
                 </form>
-                <br/>
-                <p>Or</p>
-                <br/>
-                <button onClick={this.demoLogin}>Demo Login</button>
-                {link}
+            
             </div>
         )
     };
