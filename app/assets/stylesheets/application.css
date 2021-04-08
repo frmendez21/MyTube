@@ -57,7 +57,7 @@ font-family: 'Noto Sans', sans-serif;
  }
 
  .logo, .form-logo {
-   width: 90px;
+   width: 100px;
    height: 30px;
    cursor: pointer;
  }
@@ -69,7 +69,7 @@ font-family: 'Noto Sans', sans-serif;
   border-style: none;
   position: absolute;
   right: 15px;
-  padding: 12px 9px;
+  padding: 12px 11px;
 }
 
 .loggedout-avatar-btn{
@@ -78,9 +78,10 @@ font-family: 'Noto Sans', sans-serif;
   color: blue;
   background-color: white;
   border: 1px solid blue;
+  font-size: 16px;
   font-weight: bold;
-  right: 5px;
-  padding: 5px 3px;
+  right: 15px;
+  padding: 6px 7px;
 }
 
 #avatar-btn-text{
