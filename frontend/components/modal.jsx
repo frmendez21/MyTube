@@ -10,7 +10,7 @@ class Modal extends React.Component {
     }
 
     render() {
-        const {modal, closeModal} = this.props
+        const {modal} = this.props
         if(!modal) {
             return null;
         }
@@ -26,7 +26,7 @@ class Modal extends React.Component {
                 return null;
         }
         return (
-            <div className="modal-background" onClick={closeModal}>
+            <div className="modal-background">
                 <div className="modal-child" onClick={e => e.stopPropagation()}>
                     {component}
                 </div>
