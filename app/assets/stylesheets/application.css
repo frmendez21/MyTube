@@ -52,8 +52,8 @@
    justify-content: space-between;
  }
 
- .logo {
-   width: 80px;
+ .logo, .form-logo {
+   width: 90px;
    height: 30px;
    cursor: pointer;
  }
@@ -105,11 +105,14 @@
   top: 20px;
   padding: 35px 10px;
   text-align: center;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 #form-type{
-  font-size: 20px;
-  font-weight: 400;
+  display:block;
+  font-size: 22px;
+  font-weight: 500;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .login-form{
@@ -117,23 +120,31 @@
 }
 
 .form-logo{
-  width: 80px;
-  height: 30px;
-  cursor: pointer;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+}
+.email-input, .username-input, .password-input{
+  padding-left: 35px;
+  padding-right: 20px;
 }
 
-.email-input, .username-input, .password-input {
-  margin-left: 140px;
+.email-input input[type="text"], .username-input input[type="text"], .password-input input[type="password"] {
+  width: 400px;
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2%;
 }
-input[type="text"], input[type="password"] {
+
+.signup-email-input input[type="text"], .signup-username-input input[type="text"], .signup-password-input input[type="password"] {
   width: 200px;
-  height: 20px;
+  height: 26px;
+  font-size: 16px;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2%;
 }
-
-
 #login-errors {
   color: red;
 }
@@ -152,17 +163,23 @@ input[type="text"], input[type="password"] {
 .signup-switch-form-btn{
   padding-left: 14px;
 }
-
+.switch-form-btn {
+  margin-right: 90px;
+}
 .next-btn {
   background-color: rgb(93, 93, 251);
   color: white;
   border-style: none;
   padding: 7px 22px;
   border-radius: 5%;
-  margin-left: 20px;
+  margin-left: 150px;
 }
 
 .signup-email-input, .signup-username-input, .signup-password-input{
   display: inline-block;
   padding: 8px 15px;
+}
+
+#notfound {
+  text-align: center;
 }

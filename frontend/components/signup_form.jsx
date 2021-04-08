@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link} from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 
 class SignupForm extends React.Component{
     constructor(props){
@@ -43,7 +43,7 @@ class SignupForm extends React.Component{
             <div>
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <h3 className="form-header">
-                        <img className="form-logo" src={window.logo} onClick={() => this.props.closeModal()}/>
+                        <Link to="/"><img className="form-logo" src={window.logo} onClick={() => this.props.closeModal()}/></Link>
                         <strong id="form-type">{formType}</strong>
                          <br/>
                         <p>{formHeader}</p>

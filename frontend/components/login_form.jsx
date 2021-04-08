@@ -81,7 +81,7 @@ class LoginForm extends React.Component{
             <div>
                 <form className="login-form" onSubmit={this.handleSubmit}>
                     <h3 className={'form-header'}>
-                        <img className="form-logo" src={window.logo} onClick={() => this.props.closeModal()}/>
+                          <Link to="/"><img className="form-logo" src={window.logo} onClick={() => this.props.closeModal()}/></Link>
                         <strong id="form-type">{formType}</strong>
                         <br/>
                         <p>{formHeader}</p>
@@ -97,7 +97,7 @@ class LoginForm extends React.Component{
                     </div>
                     <div className="username-input hidden">
                         <input type="text" value={username} onChange={this.update('username')} placeholder='Username'/>
-                        <br/>
+                        <br/><br/>
                         <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
                         <br/>
                         {link}
@@ -105,7 +105,7 @@ class LoginForm extends React.Component{
                     </div>
                     <div className="password-input hidden" >
                         <input type="password" value={password} onChange={this.update('password')} placeholder="Enter your password"/>
-                        <br/>
+                        <br/><br/>
                         <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
                         <br/>
                         {link}
