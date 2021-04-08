@@ -64,9 +64,10 @@ class SignupForm extends React.Component{
                         <input type="password" value={password} onChange={this.update('password')} placeholder="Password"/>
                         <p id="login-errors">{errors}</p>
                       </div>
-                    <button className="next-btn" type="submit">Next</button>
+                       {link}
+                    <button className="signup-next-btn" type="submit">Next</button>
                 </form>
-                {link}
+               
             </div>
         )
     };

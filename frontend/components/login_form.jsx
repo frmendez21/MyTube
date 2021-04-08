@@ -15,6 +15,7 @@ class LoginForm extends React.Component{
         this.showPasswordInput = this.showPasswordInput.bind(this);
         this.handleFail = this.handleFail.bind(this);
         this.switchForms = this.switchForms.bind(this);
+        this.invalidLength = this.invalidLength.bind(this);
     };
 
     handleSubmit(e){
@@ -35,7 +36,7 @@ class LoginForm extends React.Component{
     };
 
     update(key) {
-        return e => this.setState({[key]: e.currentTarget.value});
+        return e => this.setState({[key]: e.currentTarget.value})    
     };
 
     demoLogin() {
@@ -76,9 +77,14 @@ class LoginForm extends React.Component{
         this.props.clearErrors()
         this.props.signup();
     }
+
+    invalidLength(e) {
+        e.preventDefault();
+    }
+
     render() {
         const {username, email, password} = this.state;
-        const {formHeader, formType, signup, login} = this.props;
+        const {formHeader, formType} = this.props;
         const link = <div className="switch-form-btn" onClick={this.switchForms}>Create account</div>;
         const errors = this.props.errors.length > 0 ? this.props.errors[0] : "";
         return (
@@ -97,7 +103,7 @@ class LoginForm extends React.Component{
                         <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
                         <br/>
                         {link}
-                        <button className="next-btn"onClick={this.showUserNameInput}>Next</button>
+                        <button className="next-btn" onClick={email.length === 0 ? this.invalidLength : this.showUserNameInput}>Next</button>
                     </div>
                     <div className="username-input hidden">
                         <input type="text" value={username} onChange={this.update('username')} placeholder='Username'/>
@@ -105,7 +111,7 @@ class LoginForm extends React.Component{
                         <div className="demo-login-btn" onClick={this.demoLogin}>Demo Login</div>
                         <br/>
                         {link}
-                        <button className="next-btn" onClick={this.showPasswordInput}>Next</button>
+                        <button className="next-btn" onClick={username.length === 0 ? this.invalidLength : this.showPasswordInput}>Next</button>
                     </div>
                     <div className="password-input hidden" >
                         <input type="password" value={password} onChange={this.update('password')} placeholder="Enter your password"/>

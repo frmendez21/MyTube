@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class AvatarDropdown extends React.Component {
+  
     render (){
         return (
             <ul className='avatar-dropdown'>
