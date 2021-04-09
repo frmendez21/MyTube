@@ -184,7 +184,7 @@ input[type="text"], input[type="text"], input[type="password"] {
   margin-right: 90px;
 }
 
-.next-btn, .signup-next-btn {
+.next-btn, .signup-next-btn, .submit-btn{
   display: inline;
   background-color: rgb(93, 93, 251);
   color: white;

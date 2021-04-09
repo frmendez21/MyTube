@@ -11,5 +11,10 @@
 #
 class Video < ApplicationRecord
     validates :title, :description, :uploader_id, presence: true 
-    belongs_to :user
+
+    belongs_to :uploader, 
+        foreign_key: :uploader_id, 
+        class_name: :User
+
+    has_one_attached :file
 end
