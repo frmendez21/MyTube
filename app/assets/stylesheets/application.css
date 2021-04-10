@@ -198,7 +198,46 @@ input[type="text"], input[type="text"], input[type="password"] {
   margin-left: 295px;
 }
 
-
 #notfound {
   text-align: center;
+}
+
+.video-content-wrapper { 
+  display: block;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video {
+  height: 500px;
+  width: inherit;
+}
+
+.video-title {
+  font-weight: bold;
+  font-size: 20px;
+  left: 100px;
+}
+
+.video-index-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px
+}
+
+#video-thumbnail {
+  width: 300px;
+  height: 200px;
+
+}
+
+#video-thumbnail-link{
+  text-decoration: none;
+  outline: none;
+}
+
+#video-thumbnail-title{
+  color: black;
+  font-weight: bolder;
 }

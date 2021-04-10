@@ -17,4 +17,5 @@ class Video < ApplicationRecord
         class_name: :User
 
     has_one_attached :file
+    has_one_attached :thumbnail
 end
