@@ -241,3 +241,15 @@ input[type="text"], input[type="text"], input[type="password"] {
   color: black;
   font-weight: bolder;
 }
+
+#video-drop-zone {
+  border: 5px solid blue;
+  width:  200px;
+  height: 100px;
+}
+
+#thumbnail-drop-zone{
+  border: 5px solid blue;
+  width:  200px;
+  height: 100px;
+}

@@ -9,6 +9,7 @@ import NotFound from './not_found';
 import HeaderMenu from './header-menu';
 import VideoIndexContainer from './containers/video_index_container';
 import VideoShowContainer from './containers/video_show_container';
+import UploadVideoFormContainer from './containers/upload_video_form_container';
 class App extends React.Component {
 
     render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
                 <AuthRoute exact path='/signup' component={HeaderMenu} />
                 <AuthRoute exact path='/login' component={HeaderMenu} />
                 <Route exact path='/videos/:id' component={VideoShowContainer} />
+                <Route exact path='/upload' component={UploadVideoFormContainer} />
                 <Route component={NotFound}/>
             </Switch>
             
