@@ -1,4 +1,4 @@
-import {RECEIVE_VIDEO, RECEIVE_VIDEOS} from '../actions/video_actions';
+import {RECEIVE_VIDEO, RECEIVE_VIDEOS, RECEIVE_VIDEO_ERRORS} from '../actions/video_actions';
 
 export default (state={}, action) => {
     Object.freeze(state);
@@ -10,6 +10,8 @@ export default (state={}, action) => {
         case RECEIVE_VIDEO: 
             nextState[action.video.id] = action.video;
             return nextState;
+        case RECEIVE_VIDEO_ERRORS: 
+            return [];
         default:
             return state;
     };
