@@ -1,3 +1,88 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.form-header {
+  top: 20px;
+  padding: 35px 10px;
+  text-align: center;
+
+}
+
+#form-type{
+  display:block;
+  font-size: 22px;
+  font-weight: 500;
+  
+}
+
+.login-form{
+  padding:10px;
+}
+
+.form-logo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+.email-input, .username-input, .password-input{
+  padding-left: 35px;
+  padding-right: 20px;
+}
+
+input[type="text"], input[type="text"], input[type="password"] {
+  width: 400px;
+  height: 50px;
+  font-size: 16px;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 2%;
+  padding-left: 15px;
+}
+
+.signup-email-input, .signup-username-input, .signup-password-input{
+  padding-left: 40px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+}
+
+#login-errors {
+  color: red;
+  padding-top: 9px;
+}
+
+.demo-login-btn {
+  width: 90px;
+  color: rgb(93, 93, 251);
+  cursor: pointer;
+}
+
+.switch-form-btn, .signup-switch-form-btn{
+  cursor: pointer;
+  color: rgb(93, 93, 251);
+  text-decoration: none;
+
+}
+.signup-switch-form-btn{
+  display: inline;
+  margin-left: 40px;
+  width: 52px;
+}
+
+.switch-form-btn {
+  display: inline;
+  margin-right: 90px;
+}
+
+.next-btn, .signup-next-btn, .submit-btn{
+  display: inline;
+  background-color: rgb(93, 93, 251);
+  color: white;
+  border-style: none;
+  padding: 7px 22px;
+  border-radius: 5%;
+  margin-left: 150px;
+}
+
+.signup-next-btn {
+  margin-left: 295px;
+}

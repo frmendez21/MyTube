@@ -1,3 +1,54 @@
 // Place all the styles related to the api/videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.video-content-wrapper { 
+  display: block;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video {
+  height: 500px;
+  width: inherit;
+}
+
+.video-title {
+  font-weight: bold;
+  font-size: 20px;
+  left: 100px;
+}
+
+.video-index-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px
+}
+
+#video-thumbnail {
+  width: 300px;
+  height: 200px;
+
+}
+
+#video-thumbnail-link{
+  text-decoration: none;
+  outline: none;
+}
+
+#video-thumbnail-title{
+  color: black;
+  font-weight: bolder;
+}
+
+#video-drop-zone {
+  border: 5px solid blue;
+  width:  200px;
+  height: 100px;
+}
+
+#thumbnail-drop-zone{
+  border: 5px solid blue;
+  width:  200px;
+  height: 100px;
+}

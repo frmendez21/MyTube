@@ -22,7 +22,7 @@ export default class AvatarWrapper extends React.Component {
 
         let button = currentUser ? <button className="avatar-btn" onClick={this.openDropdown}><strong id="avatar-btn-text">{currentUser.username[0].toUpperCase()}</strong></button> : <button className="loggedout-avatar-btn"onClick={login}>SIGN IN</button>;
 
-        let dropdown = isDropdownOpen && currentUser ? <div className="avatar-dropdown-wrapper" onClick={this.closeDropdown} onMouseLeave={this.closeDropdown}><AvatarDropdown logout={this.props.logout}/></div> : null;
+        let dropdown = isDropdownOpen && currentUser ? <nav className="avatar-dropdown-wrapper" onClick={this.closeDropdown} onMouseLeave={this.closeDropdown}><AvatarDropdown logout={this.props.logout}/></nav> : null;
         return(
             <div className="avatar-wrapper">
                 {button}

@@ -60,12 +60,12 @@ export default class UploadVideoForm extends React.Component {
                     <h3 className="upload-form-header">Upload Videos</h3>
                     <div className="upload-title-input">
                         <label>Title:
-                            <input type="text" value={title} onChange={this.update('title')}/>
+                            <input type="text" value={title} onChange={this.update('title')} required/>
                         </label>
                     </div>
                     <div className="upload-description-input">
                         <label>Description:
-                            <textarea value={description} onChange={this.update('description')} rows="10" cols="50"></textarea>
+                            <textarea value={description} onChange={this.update('description')} rows="10" cols="50" required></textarea>
                         </label>
                     </div>
                     <div className="upload-video-input">

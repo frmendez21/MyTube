@@ -33,4 +33,5 @@ export const fetchVideo = videoId => dispatch => (
 export const uploadVideo = video => dispatch => (
     videoApiUtil.uploadVideo(video) 
         .then(video => dispatch(receiveVideo(video)))
+        .fail(err => dispatch(receiveVideoErrors(err)))
 );
