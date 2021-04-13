@@ -11,15 +11,18 @@
         .avatar-btn {
             position: relative;
             top: 30px;
-            width: 8%
+            width: 8%;
+            font-size: 1vw;
+            color: white;
         }
 
         .submit-btn {
             position: relative;
             width: 15%;
             border-radius: 5%;
-            left:20%;
-          
+            margin-left: auto;
+            font-size: .9vw;
+            padding: 5px;
         }
     }
 
@@ -28,6 +31,7 @@
         font-weight: bolder;
         text-align: center;
         padding-bottom: 20px;
+        border-bottom: 1px solid lightgray;
     }
 
     .upload-title-input {
@@ -52,10 +56,12 @@
         }
     }
 
-    .upload-video-input {
+    .drag-drop-inputs {
         padding-bottom: 15px;
-        #video-drop-zone{
-            width: 100%;
+        padding-left: 5px;
+        display: flex;
+        #video-drop-zone, #thumbnail-drop-zone{
+            width:50%;
             height: 100px;
             outline: none;
             padding: 10px 0;
@@ -63,20 +69,31 @@
             border: 1px solid black;
             font-size: 16px;
             color: gray;
+
+            .fas {
+                position: relative;
+                color: red;
+                font-size: 20px;
+                left: 40%;
+                top: 20%;
+            }
+
+            #file-name {
+                color: blue;
+            }
         }
     }
+}
 
-    .upload-thumbnail-input {
-        padding-bottom: 15px;
-        #thumbnail-drop-zone{
-            width: 100%;
-            height: 100px;
-            outline: none;
-            padding: 10px 0;
-            padding-left: 10px;
-            border: 1px solid black;
-            font-size: 16px;
-            color: gray;
-        }
+.spinner-wrapper {
+    #spinner {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #spinner-text {
+        text-align: center;
+        font-weight: bolder;
+        font-size: 22px
     }
 }

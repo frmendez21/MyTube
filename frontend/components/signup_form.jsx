@@ -67,7 +67,6 @@ class SignupForm extends React.Component{
                        {link}
                     <button className="signup-next-btn" type="submit">Next</button>
                 </form>
-               
             </div>
         )
     };
