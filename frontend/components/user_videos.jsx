@@ -20,7 +20,7 @@ export default class UserVideos extends React.Component {
                     Description: {vid.description}
                 </aside>
                 <Link to={`videos/edit/${vid.id}`} ><button id="edit-btn" onClick={this.props.edit}>Edit</button></Link>
-                <button id="delete-btn" onClick={() => this.props.delete(vid.id)}>Delete</button>
+                <Link to={`videos/delete/${vid.id}`}><button id="delete-btn" onClick={this.props.delete}>Delete</button></Link>
         </li>
         )
     }

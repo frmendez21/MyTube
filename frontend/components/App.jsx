@@ -24,6 +24,7 @@ class App extends React.Component {
                 <AuthRoute exact path ='/users/:id' component={UserShowContainer} />
                 <AuthRoute exact path='/upload' component= {UploadVideoFormContainer} />
                 <AuthRoute exact path='/users/videos/edit/:id' component={Modal} />
+                <AuthRoute exact path='/users/videos/delete/:id' component={Modal} />
                 <Route component={NotFound}/>
             </Switch>
             

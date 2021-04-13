@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import LoginFormContainer from './containers/login_form_container';
 import SignupFormContainer from './containers/signup_form_container';
 import EditVideoFormContainer from './containers/edit_video_form_container';
+import DeleteVideoFormContainer from './containers/delete_video_form_container';
 
 class Modal extends React.Component {
     constructor(props){
@@ -26,10 +27,13 @@ class Modal extends React.Component {
             case 'edit': 
                 component = <EditVideoFormContainer />;
                 break;
+            case 'delete':
+                component = <DeleteVideoFormContainer />;
+                break;
             default:
                 return null;
         }
-        if (modal === 'edit') {
+        if (modal === 'edit' || modal === 'delete') {
             return (
                 <div className="edit-modal-background">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>

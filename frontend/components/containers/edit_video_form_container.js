@@ -5,7 +5,8 @@ import EditVideoForm from '../edit_video_form';
 import {withRouter} from 'react-router-dom';
 
 const MSTP = (state, ownProps) => ({ 
-    video: state.entities.videos[ownProps.match.params.id]
+    video: state.entities.videos[ownProps.match.params.id], 
+    formType: 'edit'
 });
 
 const MDTP = dispatch => ({

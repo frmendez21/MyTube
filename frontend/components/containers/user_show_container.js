@@ -1,7 +1,7 @@
 import UserShow from '../user_show';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {fetchVideos, deleteVideo} from '../../actions/video_actions';
+import {fetchVideos} from '../../actions/video_actions';
 import {openModal, closeModal} from '../../actions/modal_actions';
 
 const MSTP = state => ({
@@ -13,7 +13,7 @@ const MDTP = dispatch => ({
     fetchVideos: userId => dispatch(fetchVideos(userId)),
     edit: () => dispatch(openModal('edit')), 
     close: () => dispatch(closeModal()),
-    delete: videoId => dispatch(deleteVideo(videoId))
+    delete: () => dispatch(openModal('delete'))
 });
 
 
