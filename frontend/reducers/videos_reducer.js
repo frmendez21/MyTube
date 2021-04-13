@@ -1,8 +1,8 @@
-import {RECEIVE_VIDEO, RECEIVE_VIDEOS, RECEIVE_VIDEO_ERRORS} from '../actions/video_actions';
+import {RECEIVE_VIDEO, RECEIVE_VIDEOS, RECEIVE_VIDEO_ERRORS, DELETE_VIDEO} from '../actions/video_actions';
 
 export default (state={}, action) => {
     Object.freeze(state);
-    const nextState = Object.assign({}, state);
+    let nextState = Object.assign({}, state);
  
     switch (action.type) {
         case RECEIVE_VIDEOS:
@@ -12,6 +12,9 @@ export default (state={}, action) => {
             return nextState;
         case RECEIVE_VIDEO_ERRORS: 
             return [];
+        case DELETE_VIDEO: 
+            delete nextState[action.videoId];
+            return nextState;
         default:
             return state;
     };

@@ -1,9 +1,10 @@
-export const fetchVideos = () => (
-    $.ajax({
+export const fetchVideos = data => {
+   return $.ajax({
         url: 'api/videos', 
-        method: 'GET'
+        method: 'GET', 
+        data
     })
-);
+};
 
 export const fetchVideo = videoId => (
    $.ajax({
@@ -12,12 +13,27 @@ export const fetchVideo = videoId => (
     })
 );
 
-export const uploadVideo = video => {
-    return $.ajax({
+export const uploadVideo = video => (
+     $.ajax({
         url: 'api/videos',
         method: "POST", 
         contentType: false,
         processData: false,
         data: video
     })
-};
+);
+
+export const editVideo = video => (
+    $.ajax({
+        url: `api/videos/${video.id}`,
+        method: 'PATCH', 
+        data: {video}
+    })
+);
+
+export const deleteVideo = videoId=> (
+    $.ajax({
+        url: `api/videos/${videoId}`, 
+        method: 'DELETE'
+    })
+);

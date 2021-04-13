@@ -1,0 +1,116 @@
+.user-videos {
+    display: flex;
+}
+
+.user-videos-container {
+    display: flex;
+    .user-video-list-item{
+        padding: 40px 40px;
+        .user-video-link {
+            text-decoration: none;
+    
+            #user-video-thumbnail {
+            width: 250px;
+            height: 150px;
+            }
+        }
+    
+        #user-video-title{
+            display: block;
+            padding: 10px 0;
+            font-weight: bold;
+            font-size: 16px;
+            color: black;
+        }
+    
+        #user-video-upload-date {
+            padding: 10px 0;
+        }
+    
+        #user-video-description {
+            padding: 10px 0;
+        }
+        #video-edit-link {
+            padding-top: 10px;
+            text-decoration: none;
+            color: blue
+        }
+    
+    }
+
+}
+
+
+.show-page-head {
+    #show-page-username {
+        display: inline;
+        padding-left: 20px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+     #upload-head {
+        font-weight: 900;
+        font-size: 22px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+    .avatar-btn {
+        margin-left: 50px;
+    }
+}
+
+.edit-modal-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 1, 0.75);
+    z-index: 10;
+}
+
+.edit-video-form {
+    padding: 15px;
+
+    #edit-video-title {
+        padding: 15px 0;
+        padding-left: 22px;
+        input[type="text"] {
+            width: 90%;
+            height: 50px;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+    }
+
+    #edit-video-description {
+        padding-top: 15px;
+        padding-left: 22px;
+        textarea {
+            resize: none;
+            width: 90%;
+            height: 300px;
+            padding-top: 10px;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+    }
+}
+
+#edit-btn, #edit-submit-btn, #delete-btn {
+        background-color: rgb(93, 93, 251);
+        color: white;
+        border-style: none;
+        padding: 7px 22px;
+        border-radius: 5%;
+}
+
+#edit-submit-btn {
+    position: relative;
+    left: 75%;
+    top: 10px;
+}
+
+#delete-btn {
+    margin-left: 10px;
+}

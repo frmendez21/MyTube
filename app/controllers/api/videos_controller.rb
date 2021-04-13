@@ -1,6 +1,11 @@
 class Api::VideosController < ApplicationController
+
     def index 
-        @videos = Video.all 
+        if params[:userId]
+            @videos = Video.where(uploader_id: params[:userId])
+        else 
+             @videos = Video.all 
+        end
     end
 
     def show 
@@ -18,15 +23,22 @@ class Api::VideosController < ApplicationController
     end 
 
     def update 
-
+        @video = Video.find_by(id: params[:id])
+        if @video.update(video_params)
+            render :show
+        else 
+            render json: @video.errors.full_messages, status: 422
+        end
     end 
 
     def destroy 
-
+        @video = Video.find_by(id: params[:id])
+        @video.destroy
     end
 
     private 
+    
     def video_params
-        params.require(:video).permit(:title, :description, :file, :thumbnail)
+        params.require(:video).permit(:id, :title, :description, :file, :thumbnail)
     end
 end

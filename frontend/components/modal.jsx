@@ -3,6 +3,7 @@ import {closeModal} from '../actions/modal_actions';
 import {connect} from 'react-redux';
 import LoginFormContainer from './containers/login_form_container';
 import SignupFormContainer from './containers/signup_form_container';
+import EditVideoFormContainer from './containers/edit_video_form_container';
 
 class Modal extends React.Component {
     constructor(props){
@@ -22,16 +23,30 @@ class Modal extends React.Component {
             case 'signup':
                 component = <SignupFormContainer />;
                 break;
+            case 'edit': 
+                component = <EditVideoFormContainer />;
+                break;
             default:
                 return null;
         }
-        return (
-            <div className="modal-background">
-                <div className="modal-child" onClick={e => e.stopPropagation()}>
-                    {component}
+        if (modal === 'edit') {
+            return (
+                <div className="edit-modal-background">
+                    <div className="modal-child" onClick={e => e.stopPropagation()}>
+                        {component}
+                    </div>
                 </div>
-            </div>
-        );
+            )
+        } else {
+            return (
+                <div className="modal-background">
+                    <div className="modal-child" onClick={e => e.stopPropagation()}>
+                        {component}
+                    </div>
+                </div>
+            );
+
+        }
     };
 };
 

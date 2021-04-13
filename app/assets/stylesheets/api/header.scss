@@ -16,18 +16,10 @@
     width: 100px;
 }
 
-.avatar-btn{
-  border-radius: 50%;
-  background-color: rgb(238, 116, 136);
-  outline: none;
-  border-style: none;
-  padding: 12px 11px;
-}
-
 #avatar-btn-text{
-  padding: 6px;
-  color: white;
-  font-size: 16px;
+    padding: 6px;
+    color: white;
+    font-size: 16px;
 }
 
 .avatar-wrapper {
@@ -35,26 +27,37 @@
 }
 
 .avatar-dropdown{
-  border: 1px solid rgb(231, 231, 231);
-  box-shadow: 1px 1px 1px rgb(231, 231, 231);
-  background-color: white;
-  position: absolute;
-  display: block;
-  z-index: 1;
-  right: 40px;
-  top: 38px;
-  width: 150px;
+    border: 1px solid rgb(231, 231, 231);
+    box-shadow: 1px 1px 1px rgb(231, 231, 231);
+    background-color: white;
+    position: absolute;
+    display: block;
+    z-index: 1;
+    right: 40px;
+    top: 38px;
+    width: 150px;
 }
 
-.avatar-list-item{
-  display: block;
-  padding: 3px;
+.avatar-list-item, .avatar-list-item > a{
+    display: block;
+    padding: 3px;
+    text-decoration: none;
+    outline: none;
+    color: black;
 }
 
- .avatar-list-item:hover{
-   cursor: pointer;
-   background-color: rgb(243, 243, 243);
- }
+.avatar-list-item:hover{
+    cursor: pointer;
+    background-color: rgb(243, 243, 243);
+}
+
+.avatar-btn{
+  border-radius: 50%;
+  background-color: rgb(238, 116, 136);
+  outline: none;
+  border-style: none;
+  padding: 12px 11px;
+}
 
 .loggedout-avatar-btn{
   outline: none;

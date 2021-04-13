@@ -53,20 +53,18 @@ export default class UploadVideoForm extends React.Component {
     };
 
     render() {
-        const {title, description, videoFile, thumbnailFile} = this.state
+        const {title, description, videoFile, thumbnailFile} = this.state;
+        const {currentUser} = this.props;
         return(
-            <div className="upload-form-wrapper" onSubmit={this.handleSubmit}>
-                <form className="upload-form">
+            <div className="upload-form-wrapper" >
+                <form className="upload-form" onSubmit={this.handleSubmit}>
+                    <button className="avatar-btn" disabled><strong id="avatar-btn-text">{currentUser.username[0].toUpperCase()}</strong></button>
                     <h3 className="upload-form-header">Upload Videos</h3>
                     <div className="upload-title-input">
-                        <label>Title:
-                            <input type="text" value={title} onChange={this.update('title')} required/>
-                        </label>
+                        <input type="text" value={title} onChange={this.update('title')} required placeholder='Title'/>
                     </div>
                     <div className="upload-description-input">
-                        <label>Description:
-                            <textarea value={description} onChange={this.update('description')} rows="10" cols="50" required></textarea>
-                        </label>
+                        <textarea value={description} onChange={this.update('description')}required placeholder='Description'></textarea>
                     </div>
                     <div className="upload-video-input">
                         <div id="video-drop-zone" onDrop={this.handleVideoDrop} onDragOver={this.handleDrag}>
@@ -78,7 +76,7 @@ export default class UploadVideoForm extends React.Component {
                             <p>Drag and drop thumbnail</p>
                         </div>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button className="submit-btn" type="submit">Submit</button>
                 </form>
             </div>
         )

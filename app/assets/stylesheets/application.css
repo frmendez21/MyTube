@@ -14,7 +14,7 @@
  *= require_self
  */
 
-body {
+body, input, textarea {
 font-family: 'Noto Sans', sans-serif;
 }
 .modal-background {
@@ -44,6 +44,9 @@ font-family: 'Noto Sans', sans-serif;
    top: 5px;
    right: 5px;
    cursor: pointer;
+   font-size: 20;
+   font-weight: bold;
+   color: red;
  }
 
  .hidden {

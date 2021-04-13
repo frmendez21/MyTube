@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import UploadVideoForm from '../upload_video_form';
 
 const MSTP = state => ({
-    errors: state.errors.videos
+    errors: state.errors.videos, 
+    currentUser: state.entities.users[state.session.id]
 });
 
 const MDTP = dispatch => ({
