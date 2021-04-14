@@ -6,8 +6,12 @@ const Video_Index_Item = props => {
        <li className="video-index-item">
            <Link to={`/videos/${props.video.id}`} id="video-thumbnail-link">
                <img id="video-thumbnail" src={props.video.thumbnailUrl}/>
-               <h3 id="video-thumbnail-title">{props.video.title}</h3>
            </Link>
+           <div className="video-index-item-info">
+                <button className="avatar-btn"><strong id="avatar-btn-text">{props.video.uploader[0].toUpperCase()}</strong></button>
+                <h3 id="video-thumbnail-title">{props.video.title}</h3><br/>
+           </div>
+           <p id="video-uploader">{props.video.uploader}</p>
        </li>
     )
 }

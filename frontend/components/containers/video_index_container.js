@@ -3,7 +3,6 @@ import {fetchVideos} from '../../actions/video_actions';
 import VideoIndex from '../video_index';
 
 const MSTP = state => ({
-    currentUser: state.entities.users[state.session.id], 
     videos: Object.values(state.entities.videos)
 });
 
