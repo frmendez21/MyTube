@@ -4,8 +4,11 @@
 
 .user-videos-container {
     display: flex;
+    flex-wrap: wrap;
     .user-video-list-item{
         padding: 40px 40px;
+        width: 250px;
+     
         .user-video-link {
             text-decoration: none;
     
@@ -29,6 +32,7 @@
     
         #user-video-description {
             padding: 10px 0;
+            overflow: hidden;
         }
         #video-edit-link {
             padding-top: 10px;
