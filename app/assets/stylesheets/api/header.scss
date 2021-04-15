@@ -12,7 +12,7 @@
    border-bottom: 1px solid lightgray;
    .logo {
      width: 125px;
-     height: 50px;
+     height: 40px;
    }
  }
 
@@ -33,11 +33,6 @@
     }
 }
 
-#avatar-btn-text{
-    padding: 6px;
-    color: white;
-    font-size: 16px;
-}
 
 
 
@@ -56,7 +51,7 @@
           z-index: 1;
           right: 40px;
           top: 38px;
-          width: 275px;
+          width: 325px;
 
           
 
@@ -80,7 +75,7 @@
               padding-top: 6px;
             }
             i {
-              padding-right: 20px;
+              padding-right: 30px;
             }
 
             .fas, .fab {
@@ -95,13 +90,16 @@
       }
 
     }
-    li:first-child{
-          border-bottom: 1px solid lightgray;
-          display: flex;
-          .current-user-info {
-            padding-left: 20px;
-          }
-        }
+  }
+.avatar-dropdown > :first-child{
+  border-bottom: 1px solid lightgray;
+
+  .avatar-btn {
+    position: absolute;
+  }
+  .current-user-info {
+    padding-left: 60px;
+  }
 }
 
 
