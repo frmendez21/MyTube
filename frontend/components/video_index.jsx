@@ -11,7 +11,7 @@ export default class VideoIndex extends React.Component {
             <VideoIndexItem key={`${video.id}-${idx}`} video={video}/>
         ));
         return (
-            <div className="video-index-wrapper">
+            <div className="main-content">
                 <ul className="video-index-container">
                     {videoIndex}
                 </ul>

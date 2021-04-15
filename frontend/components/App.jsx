@@ -17,7 +17,7 @@ class App extends React.Component {
         return (
         <div className="main-container">
             <Modal />
-            <HeaderMenu />
+            <Route path = '/' component={HeaderMenu} />
             <Switch>
                 <Route exact path='/' component={VideoIndexContainer} />
                 <Route exact path='/videos/:id' component={VideoShowContainer} />

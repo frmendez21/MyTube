@@ -1,16 +1,15 @@
 .upload-form-wrapper {
     display: flex;
     justify-content: center;
-
+    margin-top: 125px;
     .upload-form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         width: 40%;
-
+        padding-bottom: 60px;
         .avatar-btn {
-            position: relative;
-            top: 30px;
+            margin-top: 20px;
             width: 8%;
             font-size: 1vw;
             color: white;
@@ -37,7 +36,7 @@
     .upload-title-input {
         padding: 15px 0;
         input[type='text'] {
-            width: 100%;
+            width: 98%;
             padding: 10px 0;
             padding-left: 10px;
             font-size: 16px;
@@ -48,7 +47,7 @@
         padding-bottom: 15px;
         textarea {
             resize: none;
-            width: 100%;
+            width: 98%;
             height: 300px;
             padding: 10px 0;
             padding-left: 10px;
@@ -58,7 +57,6 @@
 
     .drag-drop-inputs {
         padding-bottom: 15px;
-        padding-left: 5px;
         display: flex;
         #video-drop-zone, #thumbnail-drop-zone{
             width:50%;
@@ -69,7 +67,6 @@
             border: 1px solid black;
             font-size: 16px;
             color: gray;
-
             .fas {
                 position: relative;
                 color: red;
@@ -81,6 +78,9 @@
             #file-name {
                 color: blue;
             }
+        }
+        #video-drop-zone{
+            margin-right: 10px;
         }
     }
 }

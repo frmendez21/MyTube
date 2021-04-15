@@ -7,12 +7,14 @@ const HeaderMenu = ({loggedIn}) => {
     const createLink = loggedIn ? <Link to="/upload"><i className="fas fa-video"></i></Link> : null;
 
     return (
-        <div className="app-head">
-            <Link to="/"><img className="logo" src={window.logo}/></Link>
-            <div className="header-right-nav">
-                <i className="fas fa-bell"></i>
-                {createLink}
-                <AvatarWrapperContainer />
+        <div className="app-head-container">
+            <div className="app-head">
+                <Link to="/"><img className="logo" src={window.logo}/></Link>
+                <div className="header-right-nav">
+                    <i className="fas fa-bell"></i>
+                    {createLink}
+                    <AvatarWrapperContainer />
+                </div>
             </div>
         </div>
     );

@@ -1,7 +1,15 @@
+ .app-head-container {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  top: 0;
+ }
  .app-head{
-   padding: 15px;
+   width: 100%;
    display: flex;
    justify-content: space-between;
+   padding: 15px;
+   border-bottom: 1px solid lightgray;
    .logo {
      width: 125px;
      height: 50px;
@@ -16,11 +24,10 @@
 
 .header-right-nav{
     display: flex;
-    justify-content: space-between;
     width: 100px;
-    .fas {
+    .fas, .fab {
       position: relative;
-      right: 30px;
+      right: 50px;
       padding: 6px;
       font-size: 24px;
     }
@@ -32,43 +39,75 @@
     font-size: 16px;
 }
 
+
+
 .avatar-wrapper {
     position: relative;
-    right: 20px;
-}
-
-.avatar-dropdown{
-    border: 1px solid rgb(231, 231, 231);
-    box-shadow: 1px 1px 1px rgb(231, 231, 231);
-    background-color: white;
-    position: absolute;
-    display: block;
-    z-index: 1;
     right: 40px;
-    top: 38px;
-    width: 150px;
+    .avatar-dropdown-wrapper {
+      
+      .avatar-dropdown{
+          border: 1px solid rgb(231, 231, 231);
+          box-shadow: 1px 1px 1px rgb(231, 231, 231);
+          background-color: white;
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          z-index: 1;
+          right: 40px;
+          top: 38px;
+          width: 275px;
+
+          
+
+          :nth-child(4){
+            border-bottom: 1px solid lightgray;
+          }
+
+          .avatar-list-item {
+            display: flex;
+            width: 98%;    
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 15px;
+            a {
+              text-decoration: none;
+              outline: none;
+              color: black;
+              width: inherit;
+            }
+            p {
+              padding-top: 6px;
+            }
+            i {
+              padding-right: 20px;
+            }
+
+            .fas, .fab {
+                position: unset;
+                color: gray;
+              } 
+          }
+          .avatar-list-item:hover{
+              cursor: pointer;
+              background-color: rgb(243, 243, 243);
+          }
+      }
+
+    }
+    li:first-child{
+          border-bottom: 1px solid lightgray;
+          display: flex;
+          .current-user-info {
+            padding-left: 20px;
+          }
+        }
 }
 
-.avatar-list-item, .avatar-list-item > a{
-    display: block;
-    padding: 3px;
-    text-decoration: none;
-    outline: none;
-    color: black;
-}
 
-.avatar-list-item:hover{
-    cursor: pointer;
-    background-color: rgb(243, 243, 243);
-}
 
-.avatar-btn{
-  border-radius: 50%;
-  background-color: rgb(238, 116, 136);
-  outline: none;
-  border-style: none;
-  padding: 12px 11px;
-}
+
+
 
 .loggedout-avatar-btn{
   outline: none;
@@ -78,7 +117,7 @@
   border: 1px solid blue;
   font-size: 16px;
   font-weight: bold;
-  right: 15px;
+  right: -50px;
   padding: 6px 7px;
   width: 90px;
 }
