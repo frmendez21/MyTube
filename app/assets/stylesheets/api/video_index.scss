@@ -4,15 +4,17 @@
 
 .video-index-wrapper {
   border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
   .video-index-container {
     margin-top: 10px;
     display: flex;
+    justify-content: flex-start;
     flex-wrap: wrap;
     padding: 10px;
-
     .video-index-item{
-      padding: 20px 20px;
-
+      padding: 20px;
+      flex-grow: 1.2;
       #video-thumbnail-link{
         text-decoration: none;
         outline: none;
