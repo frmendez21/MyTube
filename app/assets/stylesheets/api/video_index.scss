@@ -12,11 +12,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+
     .video-index-item{
       padding-top: 35px;
       padding-left: 10px;
       padding-right: 10px;
-  
+      overflow: hidden;
       #video-thumbnail-link{
         text-decoration: none;
         outline: none;
