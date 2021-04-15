@@ -14,7 +14,6 @@ import UserShowContainer from './containers/user_show_container';
 
 class App extends React.Component {
     render() {
-        console.log(this)
         return (
         <div className="main-container">
             <Modal />
