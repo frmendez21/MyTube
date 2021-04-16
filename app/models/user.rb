@@ -18,6 +18,10 @@ class User < ApplicationRecord
    has_many :videos, 
       foreign_key: :uploader_id, 
       class_name: :Video
+
+   has_many :comments, 
+      foreign_key: :commenter_id, 
+      class_name: :Comment
       
    after_initialize :ensure_session_token
    attr_reader :password

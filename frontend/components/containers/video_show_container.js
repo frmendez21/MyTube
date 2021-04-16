@@ -4,8 +4,8 @@ import VideoShow from '../video_show';
 
 const MSTP = (store, ownProps) => ({
     video: store.entities.videos[ownProps.match.params.id], 
-    videos: Object.values(store.entities.videos).slice(0, 5),
-}) 
+    videos: Object.values(store.entities.videos).slice(0, 5)
+});
 
 const MDTP = dispatch => ({
     fetchVideo: video => dispatch(fetchVideo(video)), 

@@ -1,0 +1,77 @@
+// Place all the styles related to the api/comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.video-showpage-container-bottom {
+    display: block;
+    padding-left: 60px;
+    width: 70%
+}
+
+.comments-section {
+    .comments-section-head {
+        width: 98%;
+        #comment-count {
+            padding: 10px 0;
+        }
+        .create-comment-form {
+            textarea{
+                resize: none;
+                border: 1px solid transparent;
+                border-bottom: 1px solid lightgray;
+                height: 25px;
+                width: 100%;
+                outline: none;
+            }
+            .comment-form-btns {
+                display: flex;
+                justify-content: flex-end;
+                #comment-cancel {
+                    color: gray;
+                    border: 1px solid transparent;
+                    font-weight: bolder;
+                    background-color: transparent;
+                    outline: none;
+                }
+                #comment-submit {
+                    color: white;
+                    background-color: lightgray;
+                    border: 1px solid transparent;
+                    padding: 5px;
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    .comment-list {
+        padding-bottom: 60px;
+        padding-top: 20px;
+        .comment-list-item {
+            padding-bottom: 20px;
+            #comment-top {
+                display: flex;
+                .avatar-btn {
+
+                }
+
+                #commenter, #timestamp {
+                    padding-top: 5px;
+                    padding-left: 10px;
+                    font-size: 16px;
+                    margin-top: 2px;
+                }
+
+                #timestamp {
+                    color: gray;
+                    
+                }
+            }
+            #comment-body {
+                margin-left: 40px;
+                padding-bottom: 15px;
+                font-size: 16px;
+            }
+        }
+    }
+}

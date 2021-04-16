@@ -1,0 +1,1 @@
+json.partial! "api/videos/comment", comment: @comment

@@ -6,3 +6,4 @@ json.uploader video.uploader.username
 json.videoUrl url_for(video.file)
 json.thumbnailUrl url_for(video.thumbnail)
 json.uploadedDate video.created_at
+json.commentIds video.comment_ids
