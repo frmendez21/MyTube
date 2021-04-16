@@ -6,7 +6,7 @@ export default class VideoComments extends React.Component {
         this.state = {newBody: ""}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearInput = this.clearInput.bind(this);
-    };
+    }
 
     update(key) {
         return e => this.setState({[key]: e.currentTarget.value})
@@ -17,11 +17,11 @@ export default class VideoComments extends React.Component {
         this.clearInput(e)
         const comment = {
             body: this.state.newBody,
-            video_id: this.props.video.id,
+            video_id: this.props.videoId,
             commenter_id: this.props.commenterId
         }
         this.props.processForm(comment)
-            .then(() => this.props.fetchComments(this.props.video.id))
+            .then(() => this.props.fetchComments(this.props.videoId))
     };
 
     clearInput(e) {
@@ -29,12 +29,8 @@ export default class VideoComments extends React.Component {
         this.setState({newBody: ""})
     };
 
-    componentDidMount() {
-        this.props.fetchComments(this.props.video.id)
-    }
-
     render () {
-        if (!this.props.comments) return null;
+        
         const comments = this.props.comments.map((comment, idx) => {
             const timeStamp = new Date(comment.dateCreated).toString().slice(4, 15);
             const button = comment.commenter ?  <button className="avatar-btn">{comment.commenter[0].toUpperCase()}</button> : null;

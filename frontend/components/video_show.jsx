@@ -1,18 +1,18 @@
 import React from 'react';
 import RecommendedVideos from './recommended_videos';
-import VideoCommentsContainer from './containers/video_comments_container';
+import VideoComments from './video_comments';
 
 export default class VideoShow extends React.Component {
     componentDidMount() {
         this.props.fetchVideo(this.props.match.params.id);
         this.props.fetchVideos()
-    };
-  
+        this.props.fetchComments(this.props.match.params.id)
+    }
+
     render() {
-        const {video, videos} = this.props
+        const {video, videos, comments} = this.props
         if(!video) return null;
         const date = new Date(video.uploadedDate).toString().slice(4, 15);
-
         return (
             <div className="video-show-content">
                 <div className="video-showpage-container-top">
@@ -35,9 +35,9 @@ export default class VideoShow extends React.Component {
                     </div>
                 </div>
                 <div className="video-showpage-container-bottom">
-                    <VideoCommentsContainer />
+                    <VideoComments comments={comments} processForm={this.props.createComment} videoId={video.id} commenterId={this.props.currentUser.id} fetchComments={this.props.fetchComments}/>
                 </div>
             </div>
-        );
+        )
     };
 };
