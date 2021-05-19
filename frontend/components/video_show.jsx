@@ -1,8 +1,10 @@
 import React from 'react';
 import RecommendedVideos from './recommended_videos';
 import VideoComments from './video_comments';
+import VideoCommentsContainer from './containers/video_comments_container';
+import {withRouter} from 'react-router-dom';
+class VideoShow extends React.Component {
 
-export default class VideoShow extends React.Component {
     componentDidMount() {
         this.props.fetchVideo(this.props.match.params.id);
         this.props.fetchVideos()
@@ -31,13 +33,15 @@ export default class VideoShow extends React.Component {
                         </div>
                         </div>
                     <div className="recommended-videos-wrapper">
-                        <RecommendedVideos videos={videos} date={date}/>
+                        <RecommendedVideos videos={videos} date={date} fetchComments={this.props.fetchComments}/>
                     </div>
                 </div>
                 <div className="video-showpage-container-bottom">
-                    <VideoComments comments={comments} processForm={this.props.createComment} videoId={video.id} commenterId={this.props.currentUser.id} fetchComments={this.props.fetchComments}/>
+                    <VideoCommentsContainer comments={comments} videoId={video.id} commenterId={this.props.currentUser.id} />
                 </div>
             </div>
         )
     };
 };
+
+export default withRouter(VideoShow)

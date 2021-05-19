@@ -13,3 +13,18 @@ export const createComment = comment => (
     })
 );
 
+export const deleteComment = comment => (
+    $.ajax({
+        url: `api/videos/${comment.videoId}/comments/${comment.id}`, 
+        method: 'DELETE'
+    })
+);
+
+export const updateComment = comment => (
+    $.ajax({
+        url: `api/videos/${comment.videoId}/comments/${comment.id}`, 
+        method: 'PATCH', 
+        data: { 'body': comment.body}
+    })
+);
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './comment';
 
 export default class VideoComments extends React.Component {
     constructor(props) {
@@ -6,6 +7,7 @@ export default class VideoComments extends React.Component {
         this.state = {newBody: ""}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearInput = this.clearInput.bind(this);
+        this.reRender = this.reRender.bind(this);
     }
 
     update(key) {
@@ -29,20 +31,14 @@ export default class VideoComments extends React.Component {
         this.setState({newBody: ""})
     };
 
+    reRender() {
+        this.props.fetchComments(this.props.videoId)
+    }
+
     render () {
-        
         const comments = this.props.comments.map((comment, idx) => {
-            const timeStamp = new Date(comment.dateCreated).toString().slice(4, 15);
-            const button = comment.commenter ?  <button className="avatar-btn">{comment.commenter[0].toUpperCase()}</button> : null;
             return (
-                <li key={idx} className="comment-list-item">
-                    <div id="comment-top">
-                        {button}
-                        <p id="commenter">{comment.commenter}</p>
-                        <p id="timestamp">{timeStamp}</p>
-                    </div>
-                    <p id="comment-body">{comment.body}</p>
-                </li>
+               <Comment key={idx} comment={comment} currentUser={this.props.currentUser} deleteComment={this.props.deleteComment} reRender={this.reRender} updateComment={this.props.updateComment}/>
             );
         });
         return(
@@ -58,7 +54,7 @@ export default class VideoComments extends React.Component {
                     </form>
                 </div>
                 <ul className="comment-list">
-                    {comments}
+                    {comments.reverse()}
                 </ul>
             </div>
         );
