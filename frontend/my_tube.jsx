@@ -4,6 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import {fetchVideo} from './actions/video_actions';
 import {updateComment} from './actions/comment_actions'
+import {createLike, fetchLikes} from './actions/like_actions'
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
 
@@ -25,5 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.getState = store.getState;
     window.dispatch = store.dispatch;
     window.updateComment = updateComment;
+    window.createLike = createLike;
+    window.fetchLikes = fetchLikes;
     window.fetchVideo = fetchVideo;
 });

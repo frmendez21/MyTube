@@ -1,9 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
-export default class RecommendedVideos extends React.Component {
+class RecommendedVideos extends React.Component {
     handleClick(videoId) {
         this.props.fetchComments(videoId)
+            .then(() => window.location.reload())
     }
     render() {
         const videos = this.props.videos.map((video, idx) => {
@@ -28,3 +29,4 @@ export default class RecommendedVideos extends React.Component {
         )
     }
 }
+export default withRouter(RecommendedVideos)

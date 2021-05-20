@@ -7,7 +7,6 @@ export default class VideoComments extends React.Component {
         this.state = {newBody: ""}
         this.handleSubmit = this.handleSubmit.bind(this);
         this.clearInput = this.clearInput.bind(this);
-        this.reRender = this.reRender.bind(this);
     }
 
     update(key) {
@@ -31,14 +30,10 @@ export default class VideoComments extends React.Component {
         this.setState({newBody: ""})
     };
 
-    reRender() {
-        this.props.fetchComments(this.props.videoId)
-    }
-
     render () {
         const comments = this.props.comments.map((comment, idx) => {
             return (
-               <Comment key={idx} comment={comment} currentUser={this.props.currentUser} deleteComment={this.props.deleteComment} reRender={this.reRender} updateComment={this.props.updateComment}/>
+               <Comment key={idx} comment={comment} currentUser={this.props.currentUser} deleteComment={this.props.deleteComment} updateComment={this.props.updateComment}/>
             );
         });
         return(

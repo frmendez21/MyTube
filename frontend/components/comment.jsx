@@ -41,7 +41,6 @@ export default class Comment extends React.Component {
         if(this.state.body.length === 0) return null;
         let comment = this.props.comment; 
         comment.body = this.state.body;
-        console.log(comment)
         this.props.updateComment(comment)
             .then(() => this.handleClick('close'))
     };
