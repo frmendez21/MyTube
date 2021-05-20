@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import {fetchVideo} from './actions/video_actions';
+import {fetchVideo, searchVideos} from './actions/video_actions';
 import {updateComment} from './actions/comment_actions'
 import {createLike, fetchLikes} from './actions/like_actions'
+
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.dispatch = store.dispatch;
     window.updateComment = updateComment;
     window.createLike = createLike;
+    window.searchVideos = searchVideos;
     window.fetchLikes = fetchLikes;
     window.fetchVideo = fetchVideo;
 });

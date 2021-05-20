@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :videos do 
       resources :comments
       resources :likes
+      get 'search', on: :collection
     end
   end
 end

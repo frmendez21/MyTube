@@ -36,6 +36,14 @@ class Api::VideosController < ApplicationController
         @video.destroy
     end
 
+    def search
+        if params[:query].present?
+            @videos = Video.where("title LIKE ?", "%#{params[:query]}%")
+        else  
+            @videos = Video.none
+        end
+    end
+
     private 
     
     def video_params

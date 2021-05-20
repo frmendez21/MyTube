@@ -37,3 +37,12 @@ export const deleteVideo = videoId=> (
         method: 'DELETE'
     })
 );
+
+export const searchVideos = query => (
+    $.ajax({
+        url: '/api/videos/search', 
+        method: 'GET',
+        data: {query: query}, 
+        dataType: 'json'
+    })
+);
