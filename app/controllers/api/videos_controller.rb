@@ -44,6 +44,7 @@ class Api::VideosController < ApplicationController
         end
     end
 
+
     private 
     
     def video_params

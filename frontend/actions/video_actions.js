@@ -62,3 +62,4 @@ export const searchVideos = query => dispatch => (
     videoApiUtil.searchVideos(query)
         .then(results => dispatch(receiveSearch(results)))
 );
+

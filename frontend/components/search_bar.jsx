@@ -1,33 +1,40 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 
 export default class SearchBar extends React.Component {
     constructor(props){
         super(props)
-        this.state = {titles: []};
+        this.state = { videos: [] };
         this.handleChange = this.handleChange.bind(this);
     };
 
     handleChange(e) {
         e.preventDefault();
         this.props.searchVideos(e.currentTarget.value)
-            .then((res) => {
-                let results = [];
-                res.results.videos.forEach(video => results.push(video.title))
-                this.setState({titles: results})
-            })
- 
+            .then((res) => this.setState({videos: Object.values(res.results)}));
     };
 
+    handleClick(action) {
+        if(action === 'clear') {
+            this.setState({videos: []})
+        }
+    }
+
     render() {
-        const searchResults = this.state.titles.map((title, idx) => (
-            <li key={idx} className="search-list-item">{title}</li>
+        const searchList = this.state.videos.map((video, idx) => (
+            <Link key={idx} className="search-link" to="/search/results" onClick={() => this.handleClick('clear')}>
+                <li className="search-list-item">{video.title}</li>
+            </Link>
         ));
         return(
             <div className="search-bar-container">
                 <input type="text" placeholder="Search" onChange={this.handleChange}/>
-                <i className="fas fa-search"></i>
+                <Link className="search-link" to="/search/results" onClick={() => this.handleClick('clear')}>
+                    <i className="fas fa-search"></i>
+                </Link>
                 <ul className="search-list">
-                    {searchResults}
+                    {searchList}
                 </ul>
             </div>
         );

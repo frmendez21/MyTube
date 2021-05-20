@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import SearchBar from '../search_bar';
 
 const mSTP = state => ({
-    results: state.entities.search.videos
+    results: Object.values(state.entities.search)
 });
 
 const mDTP = dispatch => ({

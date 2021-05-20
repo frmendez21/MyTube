@@ -11,6 +11,7 @@ import VideoIndexContainer from './containers/video_index_container';
 import VideoShowContainer from './containers/video_show_container';
 import UploadVideoFormContainer from './containers/upload_video_form_container';
 import UserShowContainer from './containers/user_show_container';
+import SearchResultsContainer from './containers/search_results_container';
 
 class App extends React.Component {
     render() {
@@ -25,6 +26,7 @@ class App extends React.Component {
                 <AuthRoute exact path='/upload' component= {UploadVideoFormContainer} />
                 <AuthRoute exact path='/users/videos/edit/:id' component={Modal} />
                 <AuthRoute exact path='/users/videos/delete/:id' component={Modal} />
+                <AuthRoute exact path='/search/results' component={SearchResultsContainer}/>
                 <Route component={NotFound}/>
             </Switch>
             
