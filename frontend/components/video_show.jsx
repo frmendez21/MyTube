@@ -2,57 +2,73 @@ import React from 'react';
 import RecommendedVideos from './recommended_videos';
 import VideoCommentsContainer from './containers/video_comments_container';
 import {withRouter} from 'react-router-dom';
+
 class VideoShow extends React.Component {
     constructor(props) {
         super(props) 
-        this.state = {likes: 0, dislikes: 0, alreadyLiked: false, likeId: null, alreadyDisliked: false}
-    }
+        this.state = {likes: 0, dislikes: 0, alreadyLiked: false, likeId: null, alreadyDisliked: false};
+        this.setLikes = this.setLikes.bind(this);
+    };
 
     handleClick(type) {
+        if(!this.props.currentUser) this.props.openModal('login');
+        
         let like = { isLike: true, likerId: this.props.currentUser.id, videoId: this.props.match.params.id }
         let {likes, dislikes, alreadyLiked, alreadyDisliked, likeId} = this.state;
-        
-        if(type === 'like' && !alreadyLiked && !alreadyDisliked) {
+
+        if(likeId) like['id'] = likeId;
+
+        if(type === 'like' && (!alreadyLiked && !alreadyDisliked)) {
             this.props.createLike(like)
-                .then(() => this.setState({likes: likes + 1, alreadyLiked: true}))
+                .then((res) => this.setState({likes: likes + 1, alreadyLiked: true, likeId: res.like.id}))
         } else if(type === 'dislike' && alreadyLiked) {
-            like['id'] = likeId
-            this.props.disLike(like)
+             this.props.disLike(like)
                 .then(() => this.setState({dislikes: dislikes + 1, likes: likes - 1, alreadyDisliked: true, alreadyLiked: false}))
         } else if(type === 'like' && alreadyDisliked) {
-            like['id'] = likeId 
-            this.props.reLike(like)
+             this.props.reLike(like)
                 .then(() => this.setState({dislikes: dislikes - 1, likes: likes + 1, alreadyDisliked: false, alreadyLiked: true}))
         } else if(type === 'like' && alreadyLiked) {
-            like['id'] = likeId;
-            this.props.deleteLike(like)
+             this.props.deleteLike(like)
                 .then(() => this.setState({likes: likes - 1, alreadyDisliked: false, alreadyLiked: false}))
         } else if (type === 'dislike' && !alreadyDisliked && !alreadyLiked){
             like.isLike = false;
-            this.props.createLike(like)
-                .then(() => this.setState({dislikes: dislikes + 1, alreadyDisliked: true}))
+             this.props.createLike(like)
+                .then((res) => this.setState({dislikes: dislikes + 1, alreadyDisliked: true, likeId: res.like.id}))
         } else if(type === 'dislike' && alreadyDisliked) {
-            like['id'] = likeId; 
-            this.props.deleteLike(like)
+             this.props.deleteLike(like)
                 .then(() => this.setState({dislikes: dislikes - 1, alreadyDisliked: false, alreadyLiked: false}))
-        }
-    }
+        };
+    };
 
     componentDidMount() {
-        this.props.fetchVideos()
-        this.props.fetchComments(this.props.match.params.id)
+        this.props.fetchVideos();
+        this.props.fetchComments(this.props.match.params.id);
         this.props.fetchVideo(this.props.match.params.id)
             .then((res) => {
-                this.setState({likes: res.video.likes.length, dislikes: res.video.dislikes.length})
-                this.props.currentUser.userLikes.forEach(like => {
-                    if((like.videoId.toString() === this.props.match.params.id) && like.isLike) {
-                        this.setState({likeId: like.id, alreadyLiked: true})
-                    } else if ((like.videoId.toString() === this.props.match.params.id) && !like.isLike){
-                        this.setState({likeId: like.id, alreadyDisliked: true})
-                    }
-                })
-            })
-    }
+                this.setLikes();
+                this.setState({likes: res.video.likes.length, dislikes: res.video.dislikes.length});
+            });
+    };
+
+    setLikes() {
+        if(this.props.currentUser) {
+            this.props.currentUser.userLikes.forEach(like => {
+                if((like.videoId.toString() === this.props.match.params.id) && like.isLike) {
+                    this.setState({likeId: like.id, alreadyLiked: true})
+                } else if ((like.videoId.toString() === this.props.match.params.id) && !like.isLike){
+                    this.setState({likeId: like.id, alreadyDisliked: true})
+                }
+            });
+        } else {
+            this.setState({alreadyLiked: false, alreadyDisliked: false})
+        };
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        if((!prevProps.currentUser && this.props.currentUser) || (prevProps.currentUser && !this.props.currentUser)) {
+           this.setLikes();
+        };
+    };
 
 
     render() {
@@ -62,24 +78,26 @@ class VideoShow extends React.Component {
         const date = new Date(video.uploadedDate).toString().slice(4, 15);
         const {likes, dislikes} = this.state;
         const likeButton = !this.state.alreadyLiked ? 
-            <div className="like-container">
-                <i id="up" className="fas fa-thumbs-up" onClick={() => this.handleClick('like')}></i>
+            <div className="like-container" onClick={() => this.handleClick('like')}>
+                <i id="up" className="fas fa-thumbs-up" ></i>
                 <p id="like-count">{likes}</p>
             </div> : 
-            <div className="like-container">
-                <i id="up-blue" className="fas fa-thumbs-up" onClick={() => this.handleClick('like')}></i>
+            <div className="like-container" onClick={() => this.handleClick('like')}>
+                <i id="up-blue" className="fas fa-thumbs-up" ></i>
                 <p id="like-count">{likes}</p>
             </div>;
 
         const disLikeButton = !this.state.alreadyDisliked ? 
-            <div className="dislike-container">
-                <i id="down" className="fas fa-thumbs-down" onClick={() => this.handleClick('dislike')}></i>
+            <div className="dislike-container" onClick={() => this.handleClick('dislike')}>
+                <i id="down" className="fas fa-thumbs-down"></i>
                 <p id="dislike-count">{dislikes}</p>
             </div> : 
-            <div className="dislike-container">
-                <i id="down-blue" className="fas fa-thumbs-down" onClick={() => this.handleClick('dislike')}></i>
+            <div className="dislike-container" onClick={() => this.handleClick('dislike')}>
+                <i id="down-blue" className="fas fa-thumbs-down"></i>
                 <p id="dislike-count">{dislikes}</p>
             </div>;
+
+        const videoComments = this.props.currentUser ?   <VideoCommentsContainer comments={comments} videoId={video.id} commenterId={this.props.currentUser.id} /> : <VideoCommentsContainer comments={comments} videoId={video.id} /> ;
 
         return (
             <div className="video-show-content">
@@ -106,11 +124,11 @@ class VideoShow extends React.Component {
                     </div>
                 </div>
                 <div className="video-showpage-container-bottom">
-                    <VideoCommentsContainer comments={comments} videoId={video.id} commenterId={this.props.currentUser.id} />
+                  {videoComments}
                 </div>
             </div>
         )
     };
 };
 
-export default withRouter(VideoShow)
+export default withRouter(VideoShow);

@@ -12,6 +12,8 @@ export default class Comment extends React.Component {
         if(this.state.showEditForm) return null;
         if(commenterId === this.props.currentUser.id) {
             event === 'enter' ? this.setState({showEditDelMenu: true}) : this.setState({showEditDelMenu: false})
+        } else {
+            return null;
         }
     }
 

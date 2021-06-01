@@ -15,6 +15,7 @@ export default class VideoComments extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        if(!this.props.currentUser) return this.props.openModal('login')
         this.clearInput(e)
         const comment = {
             body: this.state.newBody,

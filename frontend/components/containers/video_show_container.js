@@ -1,7 +1,8 @@
 import {connect} from 'react-redux';
 import {fetchVideo, fetchVideos} from '../../actions/video_actions';
 import {fetchComments, createComment} from '../../actions/comment_actions';
-import {fetchLikes, createLike, disLike, reLike, deleteLike} from '../../actions/like_actions'
+import {fetchLikes, createLike, disLike, reLike, deleteLike} from '../../actions/like_actions';
+import {openModal} from '../../actions/modal_actions';
 import VideoShow from '../video_show';
 const MSTP = (store, ownProps) => ({
     video: store.entities.videos[ownProps.match.params.id], 
@@ -20,7 +21,8 @@ const MDTP = dispatch => ({
     createLike: like => dispatch(createLike(like)), 
     disLike: like => dispatch(disLike(like)), 
     reLike: dislike => dispatch(reLike(dislike)), 
-    deleteLike: like => dispatch(deleteLike(like))
+    deleteLike: like => dispatch(deleteLike(like)), 
+    openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(MSTP, MDTP)(VideoShow);

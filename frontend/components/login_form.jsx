@@ -22,7 +22,10 @@ class LoginForm extends React.Component{
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
-            .then(this.props.closeModal)
+            .then(() => {
+                // window.location.reload();
+                this.props.closeModal();
+            })
             .fail(() => this.handleFail())
     };
 
@@ -46,7 +49,10 @@ class LoginForm extends React.Component{
             password: 'demo123'
         }
         this.props.processForm(user)
-            .then(this.props.closeModal)
+            .then(() => {
+                // window.location.reload();
+                this.props.closeModal();
+            })
     }
 
     showUserNameInput(e) {
