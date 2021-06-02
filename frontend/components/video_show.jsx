@@ -11,7 +11,7 @@ class VideoShow extends React.Component {
     };
 
     handleClick(type) {
-        if(!this.props.currentUser) this.props.openModal('login');
+        if(!this.props.currentUser) return this.props.openModal('login');
         
         let like = { isLike: true, likerId: this.props.currentUser.id, videoId: this.props.match.params.id }
         let {likes, dislikes, alreadyLiked, alreadyDisliked, likeId} = this.state;

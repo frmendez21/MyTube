@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 
 export default class SearchBar extends React.Component {
@@ -17,18 +17,18 @@ export default class SearchBar extends React.Component {
 
     handleClick(action) {
         if(action === 'clear') {
-            this.setState({videos: []})
-        }
-    }
+            this.setState({videos: []});
+        };
+    };
 
     render() {
         const searchList = this.state.videos.map((video, idx) => (
-            <Link key={idx} className="search-link" to="/search/results" onClick={() => this.handleClick('clear')}>
+            <Link key={idx} className="search-link" to={`/videos/${video.id}`} onClick={() => this.handleClick('clear')}>
                 <li className="search-list-item">{video.title}</li>
             </Link>
         ));
         return(
-            <div className="search-bar-container">
+            <div className="search-bar-container" >
                 <input type="text" placeholder="Search" onChange={this.handleChange}/>
                 <Link className="search-link" to="/search/results" onClick={() => this.handleClick('clear')}>
                     <i className="fas fa-search"></i>

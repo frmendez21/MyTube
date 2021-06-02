@@ -28,7 +28,6 @@ class SignupForm extends React.Component{
             email: "",
             password: ""
         });
-        
     };
 
     update(key) {

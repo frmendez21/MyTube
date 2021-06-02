@@ -5,12 +5,17 @@ class Api::UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
-        if @user.save 
-            login!(@user)
-            render :show
-        else 
+        if valid_email?(@user.email)
+            if @user.save 
+                login!(@user)
+                render :show
+            else 
+                render json: @user.errors.full_messages, status: 401
+            end 
+        else  
+            @user.errors.add(:email, "Invalid")
             render json: @user.errors.full_messages, status: 401
-        end 
+        end
     end 
 
     def update 
@@ -38,5 +43,9 @@ class Api::UsersController < ApplicationController
     end
     def user_params
         params.require(:user).permit(:username, :email, :password)
+    end
+    def valid_email?(email)
+        email.each_char { |c| return true if c === '@' } 
+        false
     end
 end

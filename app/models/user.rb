@@ -58,4 +58,5 @@ class User < ApplicationRecord
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
    end
+
 end

@@ -21,8 +21,7 @@ export default class AvatarDropdown extends React.Component {
                     <p>Sign Out</p>
                 </li>
                 <li className="avatar-list-item" key={'3'}>
-                    <i className="fas fa-cog"></i>
-                    <p>Settings</p>
+                   <a href="https://angel.co/u/frank-mendez-1" target="_blank"><i className="fab fa-angellist"></i>AngelList</a>
                 </li>
                 <li className="avatar-list-item" key={'4'}>
                       <a href="https://github.com/frmendez21/MyTube" target="_blank"><i className="fab fa-github"></i>Github</a>

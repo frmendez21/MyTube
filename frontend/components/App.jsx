@@ -22,11 +22,11 @@ class App extends React.Component {
             <Switch>
                 <Route exact path='/' component={VideoIndexContainer} />
                 <Route exact path='/videos/:id' component={VideoShowContainer} />
+                <Route exact path='/search/results' component={SearchResultsContainer}/>
                 <AuthRoute exact path ='/users/:id' component={UserShowContainer} />
                 <AuthRoute exact path='/upload' component= {UploadVideoFormContainer} />
                 <AuthRoute exact path='/users/videos/edit/:id' component={Modal} />
                 <AuthRoute exact path='/users/videos/delete/:id' component={Modal} />
-                <AuthRoute exact path='/search/results' component={SearchResultsContainer}/>
                 <Route component={NotFound}/>
             </Switch>
             
