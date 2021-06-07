@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 class VideoShow extends React.Component {
     constructor(props) {
         super(props) 
-        this.state = {likes: 0, dislikes: 0, alreadyLiked: false, likeId: null, alreadyDisliked: false};
+        this.state = {likes: 0, dislikes: 0, alreadyLiked: false, likeId: null, alreadyDisliked: false, isExternal: false};
         this.setLikes = this.setLikes.bind(this);
     };
 
@@ -41,13 +41,17 @@ class VideoShow extends React.Component {
     };
 
     componentDidMount() {
-        this.props.fetchVideos();
-        this.props.fetchComments(this.props.match.params.id);
-        this.props.fetchVideo(this.props.match.params.id)
-            .then((res) => {
-                this.setLikes();
-                this.setState({likes: res.video.likes.length, dislikes: res.video.dislikes.length});
-            });
+        if(this.props.match.params.id[0] === 'y') {
+            this.setState({isExternal: true})
+        } else {
+            this.props.fetchVideos();
+            this.props.fetchComments(this.props.match.params.id);
+            this.props.fetchVideo(this.props.match.params.id)
+                .then((res) => {
+                    this.setLikes();
+                    this.setState({likes: res.video.likes.length, dislikes: res.video.dislikes.length});
+                });
+        }
     };
 
     setLikes() {
@@ -72,9 +76,27 @@ class VideoShow extends React.Component {
 
 
     render() {
+        if(this.state.isExternal) {
+            const videoId = this.props.match.params.id.slice(2);
+            return (
+                <div className="video-show-content">
+                    <div className="video-showpage-container-top">
+                        <div className="video-show-wrapper">
+                            <iframe id="ytplayer" className="video" type="text/html" src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0">
+                            </iframe>
+                             <div className="video-info-wrapper">
+                                 <div className="video-title">
+                                     
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            )
+        };
+
         const {video, videos, comments} = this.props
         if(!video) return null;
-
         const date = new Date(video.uploadedDate).toString().slice(4, 15);
         const {likes, dislikes} = this.state;
         const likeButton = !this.state.alreadyLiked ? 

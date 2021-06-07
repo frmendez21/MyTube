@@ -11,13 +11,13 @@
     <script type="text/javascript">
       window.logo = "<%= image_url("logo.png") %>"
       window.spinner = "<%= image_url("spinner.gif") %>"
+      window.youtubeAPIKey = "<%= Rails.application.credentials.youtube[:api_key] %>"
     </script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/6236dc5361.js" crossorigin="anonymous"></script>
     <%= favicon_link_tag asset_path("logo2.png") %>
   </head>
-
   <body>
     <%= yield %>
   </body>
