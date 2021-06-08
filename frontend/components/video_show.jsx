@@ -42,6 +42,7 @@ class VideoShow extends React.Component {
 
     componentDidMount() {
         if(this.props.match.params.id[0] === 'y') {
+            this.props.fetchYoutubeVideo(this.props.match.params.id.slice(2))
             this.setState({isExternal: true})
         } else {
             this.props.fetchVideos();
@@ -78,6 +79,7 @@ class VideoShow extends React.Component {
     render() {
         if(this.state.isExternal) {
             const videoId = this.props.match.params.id.slice(2);
+            console.log(this.props.youtubeVideo)
             return (
                 <div className="video-show-content">
                     <div className="video-showpage-container-top">

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import {fetchPopularVideos} from './actions/youtube_actions';
+import {fetchPopularVideos, fetchYoutubeVideo} from './actions/youtube_actions';
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
 
@@ -23,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
     ReactDOM.render(<Root store={store}/>, root);
     window.dispatch = store.dispatch;
     window.fetchPopularVideos = fetchPopularVideos;
+    window.fetchYoutubeVideo = fetchYoutubeVideo;
 });

@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
 import {fetchVideo, fetchVideos} from '../../actions/video_actions';
+import {fetchYoutubeVideo} from '../../actions/youtube_actions';
 import {fetchComments, createComment} from '../../actions/comment_actions';
 import {fetchLikes, createLike, disLike, reLike, deleteLike} from '../../actions/like_actions';
 import {openModal} from '../../actions/modal_actions';
@@ -9,12 +10,14 @@ const MSTP = (store, ownProps) => ({
     videos: Object.values(store.entities.videos).slice(0, 5),
     comments: Object.values(store.entities.comments), 
     likes: Object.values(store.entities.likes),
-    currentUser: store.entities.users[store.session.id]
+    currentUser: store.entities.users[store.session.id], 
+    youtubeVideo: store.entities.youtubeVideos[ownProps.match.params.id.slice(2)]
 }) 
 
 const MDTP = dispatch => ({
     fetchVideo: video => dispatch(fetchVideo(video)), 
     fetchVideos: videos => dispatch(fetchVideos(videos)), 
+    fetchYoutubeVideo: videoId => dispatch(fetchYoutubeVideo(videoId)),
     fetchComments: videoId => dispatch(fetchComments(videoId)), 
     createComment: comment => dispatch(createComment(comment)), 
     fetchLikes: videoId => dispatch(fetchLikes(videoId)), 

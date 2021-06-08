@@ -12,6 +12,12 @@ export const fetchPopularVideos = () => (
 
 export const fetchVideo = videoId => (
     $.ajax({
-        
+        url: "https://www.googleapis.com/youtube/v3/videos", 
+        method: "GET", 
+        data: { 
+            part: "snippet,contentDetails,statistics",
+            id: videoId,
+            key: window.youtubeAPIKey
+        }
     })
 )
