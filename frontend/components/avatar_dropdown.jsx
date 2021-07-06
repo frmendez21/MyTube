@@ -1,22 +1,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-export default class AvatarDropdown extends React.Component {
+const  AvatarDropdown = props => {
 
-    render (){
+
         return (
             <ul className='avatar-dropdown'>
                 <li className="avatar-list-item" key={'0'}>
-                    <button className="avatar-btn"><strong id="avatar-btn-text">{this.props.currentUser.username[0].toUpperCase()}</strong></button>
+                    <button className="avatar-btn"><strong id="avatar-btn-text">{props.currentUser.username[0].toUpperCase()}</strong></button>
                     <div className="current-user-info">
-                        <p>{this.props.currentUser.username}</p>
-                        <p>{this.props.currentUser.email}</p>
+                        <p>{props.currentUser.username}</p>
+                        <p>{props.currentUser.email}</p>
                     </div>
 
                 </li>
                 <li className="avatar-list-item" key={'1'}>
-                    <Link to={`/users/${this.props.currentUser.id}`}><i className="fas fa-user"></i>Your channel</Link>
+                    <Link to={`/users/${props.currentUser.id}`}><i className="fas fa-user"></i>Your channel</Link>
                 </li>
-                <li className="avatar-list-item" key={'2'} onClick={this.props.logout}>
+                <li className="avatar-list-item" key={'2'} onClick={props.logout}>
                     <i className="fas fa-sign-out-alt"></i>
                     <p>Sign Out</p>
                 </li>
@@ -31,6 +31,7 @@ export default class AvatarDropdown extends React.Component {
                 </li>
             </ul>
         );
-    };
+
 };
 
+export default AvatarDropdown

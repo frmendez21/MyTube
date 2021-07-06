@@ -1,5 +1,5 @@
 import {fetchComments, createComment, deleteComment, updateComment} from '../../actions/comment_actions';
-import VideoComments from '../video_comments';
+import VideoComments from './video_comments'
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import {openModal} from '../../actions/modal_actions';

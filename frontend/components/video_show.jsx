@@ -1,6 +1,6 @@
 import React from 'react';
 import RecommendedVideos from './recommended_videos';
-import VideoCommentsContainer from './containers/video_comments_container';
+import VideoCommentsContainer from './comments/video_comments_container'
 import {withRouter} from 'react-router-dom';
 
 class VideoShow extends React.Component {
